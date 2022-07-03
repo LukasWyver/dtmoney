@@ -1,8 +1,13 @@
+import React, { useEffect } from "react";
 import { TrashSimple } from "phosphor-react";
-import React from "react";
 import { Container } from "./styles";
+import { api } from "../../services/api";
 
 export function TransactionsTable() {
+  useEffect(() => {
+    api.get("transactions").then((response) => console.log(response.data));
+  }, []);
+
   return (
     <Container>
       <table>
